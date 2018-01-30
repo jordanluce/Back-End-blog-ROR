@@ -1,0 +1,16 @@
+                                                RAILS TO DO'S:
+
+
+Password confirmation:
+1) add strong parameters in controller:
+
+def user_params
+		params.require(:user).permit(:id, :fullname, :username, :password, :password_confirmation)
+	end
+
+2) add in model the following line:
+
+validates_confirmation_of :password
+
+3) create the view
+

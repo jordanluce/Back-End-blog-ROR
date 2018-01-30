@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  message: MyText
+  status: false
+  posts: one
+  visitors: one
+
+two:
+  message: MyText
+  status: false
+  posts: two
+  visitors: two

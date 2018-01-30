@@ -1,0 +1,96 @@
+
+
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-3 profil  ">
+			<aside>
+				<img src="/assets/me.jpg" alt="me" class="img-circle">
+				<h1>Jordan Luce</h1>
+				<p>Software Eng. CODEHANCE</p>
+				<a class="twitter-follow-button"
+					href="https://twitter.com/IWASFed"
+					data-show-screen-name="True"
+					data-show-count="True"
+					data-size="small"
+					>
+					Follow @IWASFed
+				</a>
+				<hr>
+				<p>Share this page</p>
+				<ul>
+					<li><img src="/assets/social_icons/email.png"></li>
+					<li><img src="/assets/social_icons/facebook.png"></li>
+					<li><img src="/assets/social_icons/twitter.png"></li>
+					<li><img src="/assets/social_icons/pinterest.png"></li>
+					<li><img src="/assets/social_icons/linkedin.png"></li>
+					<li><img src="/assets/social_icons/googleplus.png"></li>
+				</ul>
+			</aside>
+
+		</div>
+
+
+		<div class="col-md-8 ">
+				<h1><b>Contact me</b></h1>
+
+				<div class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua.</div>
+					<hr>
+
+					<p>twitter:<a href="http://www.twitter.com/IWASFed" target="_blank"> @IWASFed</a></p>
+					<p>linkedin:<a href="http://www.linkedin.com/IWASFed" target="_blank"> follow me on linkedin</a></p>
+					<p>github:<a href="http://www.github.com/IWASFed" target="_blank"> follow me on github</a></p>
+					<hr>
+
+
+
+
+					<div class="row">
+						<div class="col-md-9">
+							<form>
+								<h3><b>Send me a message</b></h3>
+								<%= form_for @visitor_message, url: messages_url do |f| %>
+
+								<% if @visitor_message.errors.any? %>
+								<div id="error_explanation">
+									<h2><%= pluralize(@visitor_message.errors.count, "error") %> prohibited this message from sending: </h2>
+									<ul>
+										<% @visitor_message.errors.full_messages.each do |message| %>
+										<li><%= message %></li>
+										<% end %>
+									</ul>
+								</div>
+								<% end %>
+
+
+								<p>
+									<%= f.text_field( :fullname, :class => 'form-control', :placeholder => 'Your name') %>
+								</p>
+
+								<p>
+									<%= f.text_field( :email, :class => 'form-control', :placeholder => 'Your email')  %>
+								</p>
+
+
+								<%= f.fields_for :messages do |c| %>
+								<p>
+									<%= c.text_area( :content, :class => 'form-control',:rows => '4', :placeholder => 'Your message') %>
+								</p>
+								<% end %>
+
+								<p>
+									<%= f.submit( :class => 'btn btn-success form-control', :value => 'Send message') %>
+								</p>
+
+								<% end %>
+
+
+							</form>
+						</div>
+					</div>
+		</div>
+	</div>
+</div>
+
+

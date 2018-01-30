@@ -1,0 +1,14 @@
+.col-md-8 header h2{
+	font-weight: bold;
+
+margin-bottom: 0px;
+}
+
+article>footer{
+margin-bottom: 10px;
+color: black;
+}
+
+.col-md-8,.lead{
+	margin-bottom: 10px;
+}

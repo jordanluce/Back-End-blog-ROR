@@ -1,0 +1,71 @@
+<h1>Dashboard</h1>
+
+<h2>Posts</h2>
+
+<%= link_to 'Create new post',new_admin_post_path %>
+<%= link_to 'List posts',  admin_posts_path %>
+
+	
+<table class="table table-bordered table-hover">
+	<thead>
+		<tr>
+			<th>Title</th>
+			<th>Replies</th>
+			<th>Dates</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+<% @posts.each do |post| %>
+		<tr>
+			<td><%= truncate(post.title, lenght: 40, separation:'') %></td>
+			<td><%= post.comments.count %></td>
+			<td><%= time_ago post.created_at %></td>
+			<td>
+				<%= link_to 'Edit',edit_admin_post_path(post) %>
+				<%= link_to 'View',admin_post_path(post) %>
+				<%= link_to 'Delete',admin_post_path(post), method: :delete, data:{confirm:'Are you sure?'} %>
+			</td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<h2>Comments</h2>
+
+<%= link_to 'List all comments',  admin_comments_path %>
+
+<% @comments.each do |comment| %>
+
+<p><%= comment.visitor.fullname %></p>
+<p><%= truncate(comment.message, lenght: 125, separator: '') %></p>
+<p><%= time_ago comment.created_at %></p>
+
+<hr>
+
+<% end %>
+
+<h2>Visitors</h2>
+
+<table class="table table-bordered table-hover">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>Fullname</th>
+			<th>Email</th>
+			<th>Created</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+	<% @visitors.each_with_index do |visitor, index| %>
+		<tr>
+			<td><%= index+1 %></td>
+			<td><%= visitor.fullname %></td>
+			<td><%= visitor.email %></td>
+			<td><%= time_ago visitor.created_at %></td>
+			<td><%= link_to 'Delete',admin_visitor_path(visitor) %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>

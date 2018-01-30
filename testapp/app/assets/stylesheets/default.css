@@ -1,0 +1,29 @@
+body{
+	margin-bottom: 50px;
+	font-family: arial;
+
+}
+
+.profil{
+	margin-right: 40px;
+}
+
+.profil>aside p{
+	font-size: 12px;
+}
+
+.profil aside ul{
+	list-style: none;
+	padding: 0px;
+}
+
+.profil aside ul li{
+	float: left;
+	margin-right: 8px;
+}
+
+.profil aside ul:after{
+	content:"";
+	display: block;
+	clear: both;
+}
