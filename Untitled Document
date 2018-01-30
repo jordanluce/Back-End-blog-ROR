@@ -1,16 +1,44 @@
                                                 RAILS TO DO'S:
 
 
-Password confirmation:
-1) add strong parameters in controller:
+PASSWORD CONFIRMATION:
+
+1) Add Strong parameters in controller:
 
 def user_params
-		params.require(:user).permit(:id, :fullname, :username, :password, :password_confirmation)
-	end
+	params.require(:user).permit(:id, :fullname, :username, :password, :password_confirmation)
+end
 
 2) add in model the following line:
 
+validates :password, presence: true
 validates_confirmation_of :password
 
-3) create the view
+3) Create the View:
+
+<%= form_for [:admin, @user] do |f| %>
+	<p>
+		<%= f.label :fullname %>
+		<%= f.text_field :fullname %>
+	</p>
+
+	<p>
+		<%= f.label :username %>
+		<%= f.text_field :username %>
+	</p>
+
+	<p>
+		<%= f.label :password %>
+		<%= f.password_field :password %>
+	</p>
+
+	<p>
+		<%= f.label :password_confirmation %>
+  		<%= f.password_field :password_confirmation %>
+	</p>
+
+	<p>
+		<%= f.submit 'Update' %>
+	</p>
+<% end %>
 
